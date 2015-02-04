@@ -1,0 +1,27 @@
+mixin selection(id,...items)
+	.selection-box.hidden(id=id)
+		.inner
+			.title 请点击一个选项
+			ul
+				each item in items
+					li= item
+
+
+mixin client(state, stateName)
+	.item
+		.name 
+			span 余漫斯
+		.loupan 万科翡翠城
+		.phone 
+			span 18577345443
+		.state(class='state'+state)
+			span= stateName
+
+mixin footer(page, name)
+	footer.main
+		.wrapper
+			a.btn(href=page+".html")= name
+		.wrapper
+			a.btn(href="user.html") 我的年货
+		.wrapper
+			a.btn(href="charts.html") 游戏排行

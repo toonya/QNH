@@ -1,0 +1,96 @@
+@import "mobile.less";
+
+
+
+
+// ----------------------------------------
+// ! footer
+// ----------------------------------------
+footer.main {
+	position: fixed;
+	bottom: @h-line/2;
+	display: table;
+	left: 10%;
+	width: 80%;
+	
+	.wrapper {
+		display: table-cell;
+		width: 33.33%;
+		text-align: center;
+	}
+}
+
+
+
+// ----------------------------------------
+// ! game
+// ----------------------------------------
+.game-box {
+	width: 100%;
+	left: 0;
+	height: 75%;
+	position: absolute;
+	bottom: 48px;
+	overflow: hidden;
+
+	.target {
+
+		.the-value {
+			color: red;
+			font-size: 20px;
+			display: none;
+			//transition: all .15s;
+		}
+
+		&.start {
+			animation: fall linear;
+			
+			&.fast {
+				animation-duration: 2s;
+			}
+
+			&.normal {
+				animation-duration: 3s;
+			}
+
+			&.slow {
+				animation-duration: 5s;
+			}
+		}
+
+		&.bingo {
+			background: none;
+
+			.the-value {
+				display: block;
+			}
+		}
+	}
+
+	.target-one {
+		width: 60px;
+		height: 60px;
+		background: green;
+		position: absolute;
+		top: -60px;
+	}
+
+	.target-two {
+		width: 72px;
+		height: 72px;
+		background: red;
+		border-radius: 36px;
+		position: absolute;
+		top: -60px;
+	}
+}
+
+@keyframes fall {
+	0% {
+		top: -10%;
+	}
+
+	100% {
+		top: 100%;
+	}
+}
