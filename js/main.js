@@ -124,7 +124,7 @@ Zepto(function($){
 	$('.game-box').beatFalling({
 		//item: [{c:'target-one',v:30}, {c:'target-two', v:60}],
 		item: [{c:'target-one',v:1}],
-		time: 15000,
+		time: 1500,
 		speed: ['fast','normal','slow'],
 		board: 'h2',
 		modal: '#game',

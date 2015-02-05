@@ -6,26 +6,30 @@ block title
 block inpage
 	.main
 		.my-info
-			.btn.btn-lg.inline ICON
-			.inline 我的信息
-			.inline 
-				p 单次 <span>xx</span> 头
-				p 总共 <span>xx</span> 头
+			.row
+				.col-4
+					.btn.btn-lg ICON
+				.col-8
+					.row
+						.col-6 我的信息
+						.col-6 
+							p 单次 <span>xx</span> 头
+							p 总共 <span>xx</span> 头
 		
 		.mt.charts
 			h3 每日薅羊排名
 			.player-list
 				
 				mixin player(n)
-					.player.mt033
-						.name.inline 张三
-						.mark.inline 123******92
-						.num.inline= n
+					.player.mt033.row
+						.name.col-3 张三
+						.mark.col-7 123******92
+						.num.col-2= n
 				
-				.player.mt033
-					.name.inline 姓名
-					.mark.inline 手机号
-					.num.inline 名次
+				.player.mt033.row
+					.name.col-3 姓名
+					.mark.col-7 手机号
+					.num.col-2 名次
 				
 				+player(1)
 				+player(2)
@@ -33,7 +37,8 @@ block inpage
 				+player(4)
 				+player(5)
 
-		.wrapper.mt05
-			a.btn(href="notice.html") 不服
-		.wrapper.mt033
-			a.btn(href="share.html") 召集
+		.row.mt
+			.col-6
+				a.btn(href="notice.html") 不服
+			.col-6.text-right
+				a.btn(href="share.html") 召集

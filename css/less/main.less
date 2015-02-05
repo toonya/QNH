@@ -1,14 +1,42 @@
 @import "mobile.less";
 
+.page {
+	background: #D40A24;
+	color: #fff;
+}
 
+.logo {
+	width: 35%;
+	position: absolute;
+	left: 5%;
+	top: 5%;
+}
 
+.the-circle-btn {
+	display: block;
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+	border: 7px solid #fff;
+	border-radius: 100%;
+	position: relative;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+	.img-responsive {
+		max-width: 60px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
 
 // ----------------------------------------
 // ! footer
 // ----------------------------------------
 footer.main {
 	position: fixed;
-	bottom: @h-line/2;
+	bottom: 16px;
 	display: table;
 	left: 10%;
 	width: 80%;
@@ -36,10 +64,10 @@ footer.main {
 	.target {
 
 		background-repeat: no-repeat;
-		background-size: cover;
+		background-size: contain;
 
 		.the-value {
-			color: red;
+			color: #fff;
 			font-size: 20px;
 			display: none;
 			//transition: all .15s;
@@ -72,16 +100,16 @@ footer.main {
 
 	.target-two {
 		width: 60px;
-		height: 60px;
+		height: 120px;
 		background: green;
 		position: absolute;
 		top: -60px;
 	}
 
 	.target-one {
-		width: 72px;
-		height: 72px;
-		background-image: url(../img/sheep-w.png);
+		width: 80px;
+		height: 150px;
+		background-image: url(../img/sheep02.png);
 		//border-radius: 36px;
 		position: absolute;
 		top: -60px;
@@ -97,3 +125,46 @@ footer.main {
 		top: 100%;
 	}
 }
+
+// ----------------------------------------
+// ! page of user
+// ----------------------------------------
+.hero, .gift {
+	.content-box();
+	.brr();
+	.br();
+	position: relative;
+	.mt2();
+
+	h2 {
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		left: 0;
+		top: 0;
+		transform: translateY(-50%);
+		margin: 0;
+		padding: 0;
+	}
+}
+.gift, .hero {
+	.list .item {
+		display: table;
+		width: 100%;
+	}
+	.icon, .mark, .action {
+		display: table-cell;
+		text-align: center;
+		width: 33.33%;
+	}
+}
+
+.hero {
+	.icon {
+		width: 50%
+	}
+	.mark {
+		width: 16.66%;
+	}
+}
+

@@ -33,11 +33,6 @@ html, body, .page {
 	position: relative;
 }
 
-.logo {
-	width: 65%;
-	margin: 24px auto;
-}
-
 .text-center {
 	text-align: center;
 }
@@ -56,11 +51,66 @@ html, body, .page {
 	.br();
 	.brr();
 }
+
+.row {
+	
+	&::after {
+		content: ' ';
+		clear: both;
+		display: block;
+	}
+
+	>* {
+		min-height: 1px;
+	}
+}
+
+.col-1 {
+	width: 100%/12 * 1;
+	float: left;
+}.col-2 {
+	width: 100%/12 * 2;
+	float: left;
+}.col-3 {
+	width: 100%/12 * 3;
+	float: left;
+}.col-4 {
+	width: 100%/12 * 4;
+	float: left;
+}.col-5 {
+	width: 100%/12 * 5;
+	float: left;
+}.col-6 {
+	width: 100%/12 * 6;
+	float: left;
+}.col-7 {
+	width: 100%/12 * 7;
+	float: left;
+}.col-8 {
+	width: 100%/12 * 8;
+	float: left;
+}.col-9 {
+	width: 100%/12 * 9;
+	float: left;
+}.col-10 {
+	width: 100%/12 * 10;
+	float: left;
+}.col-11 {
+	width: 100%/12 * 11;
+	float: left;
+}.col-12 {
+	width: 100%/12 * 12;
+	float: left;
+}
 // ----------------------------------------
 // ! basic style
 // ----------------------------------------
 .p1 {
 	padding: 1px;
+}
+
+a:hover, a:visited, a:active, a:focus{
+	outline: none;
 }
 
 a:visited {
@@ -346,30 +396,32 @@ ul {
 
 
 .btn {
-	border-radius: 3px;
 	padding: 6px 12px;
-	background: @c-orange;
-	color: #fff;
+	background: #FFF2DB;
+	color: #820211;
 
 	&:visited {
-		color: #fff;
+		color: #820211;
 	}
 }
 
+.btn-small {
+	padding: 1px 8px;
+	font-size: 13px;
+}
+
 .btn-lg {
-	width: 96px;
-	height: 96px;
+	padding: 12px 36px;
 	display: block;
-	text-align: center;
-	line-height: 96px;
-	padding: 0;
-	.block-center();
 
 	&.btn-circle {
 		border-radius: 48px;
 	}
 }
 
+.btn-block {
+	display: inline-block;
+}
 
 .modal {
 	display: none;
@@ -382,17 +434,58 @@ ul {
 	right: 0;
 	z-index: 9999;
 	background: rgba(0, 0, 0, 0.5);
-	color: #fff;
+	color: #820211;
 	
 	.inner {
 		width: 80%;
 		left: 10%;
 		position: absolute;
-		top: 50%;
+		top: 40%;
 		transform: translateY(-50%);
+		background: #FFF2DB;
 	}
 
 	&.show {
 		display: block;
+	}
+
+	.btn {
+		background: #820211;
+		color: #FFF2DB;
+	}
+}
+
+.overhead-box {
+	position: relative;
+	background: rgba(0, 0, 0, 0.5);
+	padding: @h-line * 4 24px 24px;
+	width: 80%;
+	margin: 100px auto 0;
+
+	p {
+		text-align: justify;
+	}
+
+	.img-circle-wrapper {
+		border-radius: 100%;
+		background: #fff;
+		position: relative;
+		width: 150px;
+		height: 150px;
+
+		img {
+			max-width: 80%;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+
+	.title {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 }
