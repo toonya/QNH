@@ -1,0 +1,15 @@
+extends inc/base
+
+block title
+	title 登记信息
+
+block inpage
+	.main
+		h1 请填写您的联系信息
+		form(action="user.html")
+			input.br.line-higher.mb033(type="text", placeholder="姓名")
+			input.br.line-higher.mb033(type="text", placeholder="手机")
+			
+
+			button.btn-half.bg-orange.mt2.line-higher(type="submit") 提交
+			a.btn-half.btn-full.bg-orange.mt05.line-higher(href="user.html") 先看看

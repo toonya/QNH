@@ -4,7 +4,14 @@ block title
 	title 游戏
 
 block inpage
-	h2.text-center(data-value=0) 0
+	.modal#game
+		.inner
+			.content-box.text-center
+				p <span></span>头
+				.mt
+					a.btn(href="result.html") 确定
+
+	h2.text-center 0
 	.main
 		.game-box
 			//canvas#game-box(style="max-width:100%", width=2000, height=768)

@@ -1,0 +1,39 @@
+extends inc/base
+
+block title
+	title 排行榜
+
+block inpage
+	.main
+		.my-info
+			.btn.btn-lg.inline ICON
+			.inline 我的信息
+			.inline 
+				p 单次 <span>xx</span> 头
+				p 总共 <span>xx</span> 头
+		
+		.mt.charts
+			h3 每日薅羊排名
+			.player-list
+				
+				mixin player(n)
+					.player.mt033
+						.name.inline 张三
+						.mark.inline 123******92
+						.num.inline= n
+				
+				.player.mt033
+					.name.inline 姓名
+					.mark.inline 手机号
+					.num.inline 名次
+				
+				+player(1)
+				+player(2)
+				+player(3)
+				+player(4)
+				+player(5)
+
+		.wrapper.mt05
+			a.btn(href="notice.html") 不服
+		.wrapper.mt033
+			a.btn(href="share.html") 召集

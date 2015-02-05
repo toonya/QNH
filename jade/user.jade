@@ -1,0 +1,23 @@
+extends inc/base
+
+block title
+	title 我的羊毛
+
+block inpage
+	.main
+		.hero
+			h2 薅羊毛英雄榜
+			.inline 每日薅羊毛之王
+				a.btn.inline.btn-small(href="register.html") 领取
+		.gift
+			h2 积分节节高
+			.list
+				mixin gift
+					.item.mt033
+						.icon.inline icon
+						.mark.inline xx 头
+						.action.inline
+							a.btn.inline.btn-small(href="share.html") 我想要
+				+gift
+				+gift
+				+gift

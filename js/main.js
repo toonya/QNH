@@ -21,6 +21,7 @@ Zepto(function($){
 	    init : function(options, _this){
 			this.option = options;
 			this.$root = _this;
+			this.$board = $(this.option.board);
 
 			this.render();
 			this.bind();
@@ -39,19 +40,22 @@ Zepto(function($){
 		},
 
 		bind : function() {
-			$(this.$root).on('touchstart', '.target', function(e){
-				var v = $(this).data('value'),
-					$board = $('h2'),
-					current = $board.data('value');
+			$(this.$root).on('touchstart', '.target', $.proxy(function(e){
 
-				$board.data('value', current+v).text($board.data('value'));
+				var v = $(e.currentTarget).data('value'),
+					$board = this.$board;
 				
-				$(this).addClass('bingo');
+				this.option.mark += v;
+
+				$board.text(this.option.mark);
+				
+				$(e.currentTarget).addClass('bingo');
 
 				setTimeout(function(_this){
 					_this.remove()
-				}, 200, $(this));
-			})
+				}, 200, $(e.currentTarget));
+
+			}, this))
 		},
 
 		timer : function(time) {
@@ -61,6 +65,9 @@ Zepto(function($){
 				_this.newItem();
 				if(_this.option.time > 0) 
 					_this.render();
+				else {
+					$(_this.option.modal).trigger('showmodal', _this.option.mark);
+				}
 			},time, this);
 		},
 
@@ -108,7 +115,6 @@ Zepto(function($){
 
 			if ( getRandomInt(0,2) ) {
 				loc.d = 'right';
-				console.log(loc.d);
 			}
 
 			return loc;
@@ -116,12 +122,24 @@ Zepto(function($){
 	}
 	
 	$('.game-box').beatFalling({
-		item: [{c:'target-one',v:30}, {c:'target-two', v:60}],
+		//item: [{c:'target-one',v:30}, {c:'target-two', v:60}],
+		item: [{c:'target-one',v:1}],
 		time: 15000,
-		speed: ['fast','normal','slow']
+		speed: ['fast','normal','slow'],
+		board: 'h2',
+		modal: '#game',
+		mark: 0,
 	});
 
 	function getRandomInt(min, max) {
 		return Math.floor(Math.random() * (max - min)) + min;
 	}
+
+
+	// ----------------------------------------
+	// ! the modal
+	// ----------------------------------------
+	$(document).on('showmodal', '.modal', function(e, mark){
+		$(this).addClass('show').find('p span').text(mark);
+	})
 })
