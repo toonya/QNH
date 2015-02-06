@@ -787,6 +787,10 @@ ul {
   border: 1px solid #FFF2DB;
   -webkit-animation-name: count-down;
           animation-name: count-down;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 @-webkit-keyframes count-down {
   0% {
@@ -971,7 +975,7 @@ footer.main .wrapper {
 }
 .result .unit {
   line-height: 96px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
 }
 .result .btn {
