@@ -1,0 +1,26 @@
+extends inc/base
+
+block title
+	title 游戏结果
+
+block inpage
+	.main
+		.result
+			h1.
+				你成功帮助
+				<span>马小跳</span>
+				薅了
+			.row.mark
+				.col-2
+				.col-8
+					// data-num录入当前获得的头数
+					.digital-board.row(data-num=95, data-digital-num=3)
+				.col-2
+					.row
+						.col-2
+						.col-9.unit 头羊
+			.mt05.text-center
+				p.text-lg.light 多谢相助，不愧是好基友！
+				p.dark.mt033 P.S.:每位好友只能帮助薅一次羊毛哦
+		.text-center.mt2
+			a(href="index.html").btn.btn-block.btn-lg 我也要薅羊毛

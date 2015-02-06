@@ -33,6 +33,10 @@ html, body, .page {
 	position: relative;
 }
 
+.npd {
+	padding: 0;
+}
+
 .text-center {
 	text-align: center;
 }
@@ -53,6 +57,7 @@ html, body, .page {
 }
 
 .row {
+	position: relative;
 	
 	&::after {
 		content: ' ';
@@ -62,6 +67,7 @@ html, body, .page {
 
 	>* {
 		min-height: 1px;
+		position: relative;
 	}
 }
 
@@ -246,12 +252,25 @@ hr {
 	margin-bottom: @h-line/3;
 }
 
-.pd2 {
+.pt2 {
 	padding-top: @h-line * 2;
 }
 
-.pd {
+.pt {
 	padding-top: @h-line;
+}
+
+.pd05 {
+	padding: @h-line/2;
+}
+.pd {
+	padding: @h-line;
+}
+.pd2 {
+	padding: @h-line*2;
+}
+.pd025 {
+	padding: @h-line/4;
 }
 
 ::-webkit-input-placeholder {
@@ -487,5 +506,32 @@ ul {
 		top: 0;
 		left: 50%;
 		transform: translate(-50%, -50%);
+	}
+}
+
+.state-bar {
+	background: #FFF2DB;
+	height: @h-line;
+	width: 90%;
+	position: absolute;
+	left: 5%;
+
+	.inner {
+		background: #820211;
+		height: @h-line;
+		width: 0%;
+		border: 1px solid #FFF2DB;
+		animation-name: count-down;
+		// animation-duration: 15s;
+	}
+}
+
+@keyframes count-down {
+	0% {
+		width: 0%;
+	}
+
+	100% {
+		width: 100%;
 	}
 }

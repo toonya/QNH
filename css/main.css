@@ -355,6 +355,9 @@ body,
   overflow: auto;
   position: relative;
 }
+.npd {
+  padding: 0;
+}
 .text-center {
   text-align: center;
 }
@@ -371,6 +374,9 @@ body,
   border: 1px solid #d9d9d9;
   border-radius: 3px;
 }
+.row {
+  position: relative;
+}
 .row::after {
   content: ' ';
   clear: both;
@@ -378,6 +384,7 @@ body,
 }
 .row > * {
   min-height: 1px;
+  position: relative;
 }
 .col-1 {
   width: 8.33333333%;
@@ -548,11 +555,23 @@ hr {
 .mb033 {
   margin-bottom: 8px;
 }
-.pd2 {
+.pt2 {
   padding-top: 48px;
 }
-.pd {
+.pt {
   padding-top: 24px;
+}
+.pd05 {
+  padding: 12px;
+}
+.pd {
+  padding: 24px;
+}
+.pd2 {
+  padding: 48px;
+}
+.pd025 {
+  padding: 6px;
 }
 ::-webkit-input-placeholder {
   color: #cdcdcd;
@@ -754,15 +773,46 @@ ul {
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
+.state-bar {
+  background: #FFF2DB;
+  height: 24px;
+  width: 90%;
+  position: absolute;
+  left: 5%;
+}
+.state-bar .inner {
+  background: #820211;
+  height: 24px;
+  width: 0%;
+  border: 1px solid #FFF2DB;
+  -webkit-animation-name: count-down;
+          animation-name: count-down;
+}
+@-webkit-keyframes count-down {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes count-down {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
 .page {
   background: #D40A24;
   color: #fff;
 }
 .logo {
-  width: 35%;
+  width: 25%;
   position: absolute;
   left: 5%;
-  top: 5%;
+  top: 3%;
 }
 .the-circle-btn {
   display: block;
@@ -783,6 +833,15 @@ ul {
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
+.light {
+  color: #FFF2DB;
+}
+.dark {
+  color: #fda400;
+}
+.text-lg {
+  font-size: 18px;
+}
 footer.main {
   position: fixed;
   bottom: 16px;
@@ -795,10 +854,43 @@ footer.main .wrapper {
   width: 33.33%;
   text-align: center;
 }
+.game-state {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 15%;
+}
+.game-state .count {
+  height: 48px;
+  line-height: 48px;
+  width: 90%;
+  position: absolute;
+  left: 5%;
+  font-size: 24px;
+}
+.digital-board {
+  height: 100%;
+  line-height: inherit;
+  font-weight: bold;
+  position: relative;
+  margin-left: -5px;
+  margin-right: -5px;
+}
+.digital-board .num {
+  height: 100%;
+  padding: 0 5px;
+}
+.digital-board .num .inner {
+  height: 100%;
+  background: #FFF2DB;
+  border-radius: 3px;
+  color: #820211;
+  text-align: center;
+}
 .game-box {
   width: 100%;
   left: 0;
-  height: 75%;
+  top: 15%;
   position: absolute;
   bottom: 48px;
   overflow: hidden;
@@ -864,6 +956,31 @@ footer.main .wrapper {
     top: 100%;
   }
 }
+.result h1 {
+  margin: 48px 0 24px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+.result .digital-board {
+  height: 72px;
+  font-size: 30px;
+}
+.result .digital-board .inner {
+  line-height: 72px;
+}
+.result .unit {
+  line-height: 96px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.result .btn {
+  width: 150px;
+  padding: 12px 0;
+}
+.result .text-center.mt2 {
+  margin-top: 72px;
+}
 .hero,
 .gift {
   padding: 24px;
@@ -905,4 +1022,57 @@ footer.main .wrapper {
 }
 .hero .mark {
   width: 16.66%;
+}
+.charts .logo {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  width: 30%;
+}
+.charts .logo-text {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.charts .charts-box {
+  width: 80%;
+  left: 10%;
+  position: relative;
+  padding-top: 84%;
+  background: url(../img/charts.png) no-repeat;
+  background-size: 100% 100%;
+}
+.charts .charts-box .inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  padding: 25% 10% 10%;
+}
+.charts .list-head {
+  border-bottom: 1px solid #fff;
+}
+.charts .my-info {
+  position: absolute;
+  width: 100%;
+  bottom: 8%;
+  left: 0;
+}
+.charts .list {
+  max-height: 144px;
+  overflow: auto;
+  position: relative;
+  padding-right: 5px;
+}
+.charts .action {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.charts .num {
+  text-align: right;
 }

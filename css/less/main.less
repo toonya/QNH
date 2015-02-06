@@ -6,10 +6,10 @@
 }
 
 .logo {
-	width: 35%;
+	width: 25%;
 	position: absolute;
 	left: 5%;
-	top: 5%;
+	top: 3%;
 }
 
 .the-circle-btn {
@@ -29,6 +29,18 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 	}
+}
+
+.light {
+	color: #FFF2DB;
+}
+
+.dark {
+	color: #fda400;
+}
+
+.text-lg {
+	font-size: 18px;
 }
 
 // ----------------------------------------
@@ -53,10 +65,49 @@ footer.main {
 // ----------------------------------------
 // ! game
 // ----------------------------------------
+.game-state {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 15%;
+
+
+	.count{
+		height: @h-line * 2;
+		line-height: @h-line * 2;
+		width: 90%;
+		position: absolute;
+		left: 5%;
+		font-size: 24px;
+	}
+}
+
+.digital-board{
+	height: 100%;
+	line-height: inherit;
+	font-weight: bold;
+	position: relative;
+	margin-left: -5px;
+	margin-right: -5px;
+
+	.num {
+		height: 100%;
+		padding: 0 5px;
+
+		.inner {
+			height: 100%;
+			background: #FFF2DB;
+			.brr();
+			color: #820211;
+			text-align: center;
+		}
+	}
+}
+
 .game-box {
 	width: 100%;
 	left: 0;
-	height: 75%;
+	top: 15%;
 	position: absolute;
 	bottom: 48px;
 	overflow: hidden;
@@ -127,6 +178,41 @@ footer.main {
 }
 
 // ----------------------------------------
+// ! page of result
+// ----------------------------------------
+.result {
+	h1 {
+		margin: 48px 0 24px;
+		font-size: 24px;
+		font-weight: bold;
+		text-align: center;
+	}
+	.digital-board {
+		height: @h-line * 3;
+		font-size: 30px;
+
+		.inner {
+			line-height: @h-line * 3;
+		}
+	}
+
+	.unit {
+		line-height: @h-line * 4;
+		font-size: 18px;
+		font-weight: bold;
+	}
+
+	.btn {
+		width: 150px;
+		padding: 12px 0;
+	}
+
+	.text-center.mt2 {
+		margin-top: @h-line * 3;
+	}
+}
+
+// ----------------------------------------
 // ! page of user
 // ----------------------------------------
 .hero, .gift {
@@ -168,3 +254,71 @@ footer.main {
 	}
 }
 
+
+// ----------------------------------------
+// ! page of charts
+// ----------------------------------------
+.charts {
+	.logo {
+		position: relative;
+		margin-left: auto;
+		margin-right: auto;
+		left: 0;
+		width: 30%;
+	}
+
+	.logo-text {
+		width: 60%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.charts-box {
+		width: 80%;
+		left: 10%;
+		position: relative;
+		padding-top: 84%;
+		background: url(../img/charts.png) no-repeat;
+		background-size: 100% 100%;
+
+		.inner {
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			//overflow: auto;
+			width: 100%;
+			height: 100%;
+			padding: 25% 10% 10%;
+		}
+	}
+
+	.list-head {
+		border-bottom: 1px solid #fff;
+	}
+
+	.my-info {
+		position: absolute;
+		width: 100%;
+		bottom: 8%;
+		left: 0;
+	}
+
+	.list {
+		max-height: @h-line * 6;
+		overflow: auto;
+		position: relative;
+		padding-right: 5px;
+	}
+
+	.action {
+		width: 75%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.num {
+		text-align: right;
+	}
+}

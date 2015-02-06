@@ -5,40 +5,34 @@ block title
 
 block inpage
 	.main
-		.my-info
-			.row
-				.col-4
-					.btn.btn-lg ICON
-				.col-8
-					.row
-						.col-6 我的信息
-						.col-6 
-							p 单次 <span>xx</span> 头
-							p 总共 <span>xx</span> 头
-		
-		.mt.charts
-			h3 每日薅羊排名
-			.player-list
-				
-				mixin player(n)
-					.player.mt033.row
-						.name.col-3 张三
-						.mark.col-7 123******92
-						.num.col-2= n
-				
-				.player.mt033.row
-					.name.col-3 姓名
-					.mark.col-7 手机号
-					.num.col-2 名次
-				
-				+player(1)
-				+player(2)
-				+player(3)
-				+player(4)
-				+player(5)
+		.charts
+			.logo.mt05
+				img.img-responsive(src="img/logo.png")
+			.logo-text.mt033
+				img.img-responsive(src="img/logo-text.png")
 
-		.row.mt
-			.col-6
-				a.btn(href="notice.html") 不服
-			.col-6.text-right
-				a.btn(href="share.html") 召集
+			.charts-box
+				.inner
+					.list-head
+						.player.row
+							.name.col-3 姓名
+							.mark.col-7 手机号
+							.num.col-2 名次	
+					.list
+						+player(1)				
+						+player(2)				
+						+player(3)				
+						+player(4)
+						+player(5)
+						+player(6)
+						+player(7)
+						+player(8)
+					.my-info
+						p.dark.text-center 我的羊毛：93    我的排名：88
+
+			.row.mt.action
+				.col-5
+					a.btn(href="notice.html") 不服重来
+				.col-2
+				.col-5.text-right
+					a.btn(href="share.html") 召唤小伙伴

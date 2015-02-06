@@ -20,10 +20,21 @@ Zepto(function($){
 	beat_falling.prototype = {
 	    init : function(options, _this){
 			this.option = options;
+			this.option.countDown.total = this.option.time/1000;
+			this.option.countDown.last = this.option.countDown.total;
 			this.$root = _this;
 			this.$board = $(this.option.board);
+			this.option.mark = this.$board.data('num');
 
 			this.render();
+			
+			this.countDown();
+			this.option.countDown.$bar
+			.css({
+				'-webkit-animation-duration': this.option.countDown.total+'s',
+          		'animation-duration': this.option.countDown.total+'s'
+			});
+
 			this.bind();
 		},
 
@@ -36,6 +47,7 @@ Zepto(function($){
 			// 	time = getRandomInt(100,450);
 			// else
 			// 	time = getRandomInt(50,400);
+			
 			this.timer(time);
 		},
 
@@ -44,10 +56,10 @@ Zepto(function($){
 
 				var v = $(e.currentTarget).data('value'),
 					$board = this.$board;
-				
+				console.log($board);
 				this.option.mark += v;
 
-				$board.text(this.option.mark);
+				$board.data('num', this.option.mark).trigger('refreshNumBoard');
 				
 				$(e.currentTarget).addClass('bingo');
 
@@ -70,6 +82,20 @@ Zepto(function($){
 				}
 			},time, this);
 		},
+
+		countDown : function() {
+
+			this.option.countDown.$board.text(this.option.countDown.last);
+			// this.option.countDown.$bar
+			// .width((this.option.countDown.total-this.option.countDown.last)/this.option.countDown.total*100+'%');
+
+			setTimeout(function(_this){
+				_this.option.countDown.last -= 1;
+				if(_this.option.countDown.last >= 0) {
+					_this.countDown();
+				}
+			},1000,this)
+		},	
 
 		renderItem : function(item) {
 			this.$root.append(item);
@@ -124,11 +150,14 @@ Zepto(function($){
 	$('.game-box').beatFalling({
 		//item: [{c:'target-one',v:30}, {c:'target-two', v:60}],
 		item: [{c:'target-one',v:1}],
-		time: 1500,
+		time: 15000,
 		speed: ['fast','normal','slow'],
-		board: 'h2',
+		board: '.count .digital-board',
 		modal: '#game',
-		mark: 0,
+		countDown: {
+			$board: $('.game-state .time span'),
+			$bar: $('.game-state .state-bar .inner'),
+		}
 	});
 
 	function getRandomInt(min, max) {
@@ -142,4 +171,30 @@ Zepto(function($){
 	$(document).on('showmodal', '.modal', function(e, mark){
 		$(this).addClass('show').find('p span').text(mark);
 	})
+
+	// ----------------------------------------
+	// ! board of number
+	// ----------------------------------------
+	$(document)
+	.on('refreshNumBoard', '.digital-board', function(){
+		var v = $(this).data('num').toString().split(''),
+			n = v.length;
+
+		for(var i=1; i<=n; i++) {
+			var _v = v.pop();
+			if( _v )
+				$(this).find('.num:nth-last-child('+i+') .inner').text(_v);
+		}
+	})
+	.on('rendNumBoard', '.digital-board', function(){
+		var n = $(this).data('digitalNum');
+		
+		for(var i=1; i<=n; i++) {
+			$('<div class="num col-'+12/n+'"><div class="inner"></div></div>').appendTo($(this));
+		}
+	})
+
+	$('.digital-board')
+	.trigger('rendNumBoard')
+	.trigger('refreshNumBoard');
 })
