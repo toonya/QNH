@@ -27,10 +27,14 @@ html, body, .page {
 
 .page {
 	padding: 5%;
-	height: auto;
-	min-height: 100%;
-	overflow: auto;
-	position: relative;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	position: absolute;
 }
 
 .npd {
@@ -506,6 +510,20 @@ ul {
 		top: 0;
 		left: 50%;
 		transform: translate(-50%, -50%);
+	}
+}
+
+@media (max-width: 360px){
+	.overhead-box {
+		padding-top: 72px;
+		margin-top: 72px;
+	}
+	.overhead-box .img-circle-wrapper {
+	  width: 100px;
+	  height: 100px;
+	}
+	.overhead-box .img-circle-wrapper img {
+	  max-width: 70%;
 	}
 }
 

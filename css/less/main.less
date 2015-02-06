@@ -322,3 +322,51 @@ footer.main {
 		text-align: right;
 	}
 }
+
+
+@media (max-width: 360px){
+	.charts {
+		.list {
+			max-height: @h-line * 5;
+		}
+	}
+}
+
+// ----------------------------------------
+// ! page of rule
+// ----------------------------------------
+.page.rule {
+	background-image: url(../img/rule-bg.jpg);
+	background-size: 100% 100%;
+	color: #130002;
+
+	height: auto;
+	min-height: 100%;
+	overflow: auto;
+
+	h1 {
+		color: #D40A24;
+		font-size: 30px;
+		font-weight: bold;
+		text-align: center;
+		margin: 48px 0 24px;
+	}
+
+	h3 {
+		background: #FDA428;
+		font-size: 16px;
+		padding: 3px 6px;
+		display: inline-block;
+		transform: skewX(-15deg);
+		box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+	}
+	.content {
+		padding: 6px 24px;
+	}
+
+	.btn {
+		background: #D40A24;
+		color: #fff;
+		font-size: 18px;
+	}
+}

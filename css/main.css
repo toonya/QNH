@@ -350,10 +350,14 @@ body,
 }
 .page {
   padding: 5%;
-  height: auto;
-  min-height: 100%;
-  overflow: auto;
-  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
 }
 .npd {
   padding: 0;
@@ -773,6 +777,19 @@ ul {
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
+@media (max-width: 360px) {
+  .overhead-box {
+    padding-top: 72px;
+    margin-top: 72px;
+  }
+  .overhead-box .img-circle-wrapper {
+    width: 100px;
+    height: 100px;
+  }
+  .overhead-box .img-circle-wrapper img {
+    max-width: 70%;
+  }
+}
 .state-bar {
   background: #FFF2DB;
   height: 24px;
@@ -1080,10 +1097,41 @@ footer.main .wrapper {
 .charts .num {
   text-align: right;
 }
-.overhead-box .img-circle-wrapper {
-  width: 100px;
-  height: 100px;
+@media (max-width: 360px) {
+  .charts .list {
+    max-height: 120px;
+  }
 }
-.overhead-box .img-circle-wrapper img {
-  max-width: 70%;
+.page.rule {
+  background-image: url(../img/rule-bg.jpg);
+  background-size: 100% 100%;
+  color: #130002;
+  height: auto;
+  min-height: 100%;
+  overflow: auto;
+}
+.page.rule h1 {
+  color: #D40A24;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin: 48px 0 24px;
+}
+.page.rule h3 {
+  background: #FDA428;
+  font-size: 16px;
+  padding: 3px 6px;
+  display: inline-block;
+  -webkit-transform: skewX(-15deg);
+      -ms-transform: skewX(-15deg);
+          transform: skewX(-15deg);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+}
+.page.rule .content {
+  padding: 6px 24px;
+}
+.page.rule .btn {
+  background: #D40A24;
+  color: #fff;
+  font-size: 18px;
 }
