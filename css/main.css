@@ -1002,6 +1002,14 @@ footer.main .wrapper {
 .result .text-center.mt2 {
   margin-top: 72px;
 }
+@media (max-height: 480px) {
+  .result h1 {
+    margin-top: 24px;
+  }
+  .result .mt2 {
+    height: 24px;
+  }
+}
 .hero,
 .gift {
   padding: 24px;
