@@ -212,18 +212,6 @@ footer.main {
 	}
 }
 
-@media (max-height: 480px) {
-	.result {
-		h1 {
-			margin-top: 24px;
-		}
-
-		.mt2 {
-			height: @h-line;
-		}
-	}
-}
-
 // ----------------------------------------
 // ! page of user
 // ----------------------------------------
@@ -380,5 +368,40 @@ footer.main {
 		background: #D40A24;
 		color: #fff;
 		font-size: 18px;
+	}
+}
+
+
+@media (max-height: 480px) {
+	.result {
+		h1 {
+			margin-top: 24px;
+		}
+
+		.mt2 {
+			margin-top: @h-line;
+		}
+	}
+
+	.page.rule h1 {
+		margin-top: 12px;
+	}
+}
+
+@media (max-width: 360px){
+	.overhead-box {
+		padding-top: 72px;
+		margin-top: 72px;
+	}
+	.overhead-box .img-circle-wrapper {
+	  width: 100px;
+	  height: 100px;
+	}
+	.overhead-box .img-circle-wrapper img {
+	  max-width: 70%;
+	}
+
+	.page.rule h1 {
+		margin-top: 12px;
 	}
 }

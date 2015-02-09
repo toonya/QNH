@@ -209,7 +209,13 @@ Zepto(function($){
 			l = 0,
 			current = 0,
 			max = 1 - $wrapper.find('.item').size(),
-			c = new Hammer($root[0]);
+			c;
+
+		if( $root.size() <= 0 ) {
+			return;
+		}
+
+		c = new Hammer($root[0]);
 
 		c.on('panmove', function(e){
 			distance = e.deltaX;
