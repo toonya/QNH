@@ -1,4 +1,4 @@
-jQuery(function($){
+Zepto(function($){
 
 	"use strict";
 	
@@ -39,7 +39,7 @@ jQuery(function($){
 		},
 
 		render : function() {
-			var time = getRandomInt(300,500);
+			var time = getRandomInt(200,400);
 			// var time = 0;
 			// if(this.option.time > 10000)
 			// 	time = getRandomInt(150,500);

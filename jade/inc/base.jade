@@ -6,7 +6,6 @@ html
 		block title
 		meta(name="description",content="")
 		meta(name="viewport",content="width=device-width, initial-scale=1, user-scalable=no")
-		link(rel="stylesheet",href="css/bootstrap.min.css")
 		link(rel="stylesheet",href="css/main.css")
 	body
 		include mixin.jade
@@ -16,8 +15,8 @@ html
 				block footer
 					+footer('index', '返回首页')
 
-		script(src="js/vendor/jquery-1.11.1.min.js")
-		script(src="js/vendor/bootstrap.min.js")
+		//- script(src="js/vendor/jquery-1.11.1.min.js")
+		script(src="js/zepto.min.js")
 		script(src="js/main.js")
 		//- script(src="js/vendor/easeljs-0.8.0.min.js")
 		//- script(src="js/game.js")

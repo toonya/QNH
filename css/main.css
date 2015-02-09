@@ -380,8 +380,6 @@ body,
 }
 .row {
   position: relative;
-  margin-left: 0;
-  margin-right: 0;
 }
 .row::after {
   content: ' ';
@@ -700,6 +698,17 @@ ul {
 }
 .btn:visited {
   color: #820211;
+}
+.btn-small {
+  padding: 1px 8px;
+  font-size: 13px;
+}
+.btn-lg {
+  padding: 12px 36px;
+  display: block;
+}
+.btn-lg.btn-circle {
+  border-radius: 48px;
 }
 .btn-block {
   display: inline-block;
@@ -1042,7 +1051,6 @@ footer.main .wrapper {
 }
 .hero .mark {
   width: 16.66%;
-  background: transparent;
 }
 .charts .logo {
   position: relative;
@@ -1050,9 +1058,6 @@ footer.main .wrapper {
   margin-right: auto;
   left: 0;
   width: 30%;
-}
-.charts .mark {
-  background: transparent;
 }
 .charts .logo-text {
   width: 60%;
