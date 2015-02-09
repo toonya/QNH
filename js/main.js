@@ -39,7 +39,7 @@ Zepto(function($){
 		},
 
 		render : function() {
-			var time = getRandomInt(200,400);
+			var time = getRandomInt(150,300);
 			// var time = 0;
 			// if(this.option.time > 10000)
 			// 	time = getRandomInt(150,500);
@@ -209,6 +209,7 @@ Zepto(function($){
 			l = 0,
 			current = 0,
 			max = 1 - $wrapper.find('.item').size(),
+			timer,
 			c;
 
 		if( $root.size() <= 0 ) {
@@ -219,6 +220,8 @@ Zepto(function($){
 
 		c.on('panmove', function(e){
 			distance = e.deltaX;
+
+			clearTimeout(timer);
 
 			if( ( distance>0 && current<0 ) || (distance < 0 && current > max) ) {
 				update();
@@ -242,6 +245,10 @@ Zepto(function($){
 		    			next();
 		    		}
 		    	}
+
+		    	else if ( (distance < 0 && current <= max) ) {
+		    		reset();
+		    	}
 		    }
 		});
 
@@ -262,6 +269,8 @@ Zepto(function($){
 			}
 
 			updateController();
+
+			autoPlay();
 		}
 
 		function updateController() {
@@ -271,7 +280,31 @@ Zepto(function($){
 			$root.find('.controller a').eq(index).addClass('active');
 		}
 
+		function autoPlay() {
+			timer = setTimeout(function(){
+
+				if ( current > max ) {
+	    			current -= 1;
+	    			next('animation');
+	    		}
+
+	    		else {
+	    			reset();
+	    		}
+
+			},3000);
+		}
+
+		function reset() {
+			TweenMax.to($wrapper, 1, {left: 0});
+			current = 0;
+			l = 0;
+			updateController();
+			autoPlay();
+		}
+
 		updateController();
+		autoPlay();
 	}
 
 	new carousel();
