@@ -56,7 +56,7 @@ Zepto(function($){
 
 				var v = $(e.currentTarget).data('value'),
 					$board = this.$board;
-				console.log($board);
+
 				this.option.mark += v;
 
 				$board.data('num', this.option.mark).trigger('refreshNumBoard');
@@ -197,4 +197,76 @@ Zepto(function($){
 	$('.digital-board')
 	.trigger('rendNumBoard')
 	.trigger('refreshNumBoard');
+
+	// ----------------------------------------
+	// ! simple slideshow
+	// ----------------------------------------
+	var carousel = function() {
+		var $root = $('.ty-carousel'),
+			$wrapper = $root.find('.inner'),
+			width = $wrapper.width(),
+			distance = 0,
+			l = 0,
+			current = 0,
+			max = 1 - $wrapper.find('.item').size(),
+			c = new Hammer($root[0]);
+
+		c.on('panmove', function(e){
+			distance = e.deltaX;
+
+			if( ( distance>0 && current<0 ) || (distance < 0 && current > max) ) {
+				update();
+			}
+		})
+
+		c.on("hammer.input", function(ev) {
+		    if(ev.isFinal) {
+		    	if( ( distance>0 && current<0 ) || (distance < 0 && current > max) ) {
+		    		if( distance/width > .1 ) {
+		    			current += 1;
+		    			next('animation');
+		    		}
+
+		    		else if (distance/width < -0.1) {
+		    			current -= 1;
+		    			next('animation');
+		    		}
+
+		    		else {
+		    			next();
+		    		}
+		    	}
+		    }
+		});
+
+
+		function update() {
+			$wrapper.css('left', l + distance);
+		}
+
+		function next(param) {
+			l = current * width;
+			
+			if( param == 'animation' ) {
+				TweenMax.to($wrapper, .5, {left: l});
+			}
+
+			else {
+				$wrapper.css('left', l)
+			}
+
+			updateController();
+		}
+
+		function updateController() {
+			var index = 0 - current;
+
+			$root.find('.controller a.active').removeClass('active');
+			$root.find('.controller a').eq(index).addClass('active');
+		}
+
+		updateController();
+	}
+
+	new carousel();
 })

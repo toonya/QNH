@@ -14,11 +14,19 @@ block page
 			p ..
 		h3 活动奖品
 		.content
-			p 活动奖品,活动奖品,活动奖品,活动奖品
-			p 活动奖品,活动奖品,活动奖品,活动奖品
-			p 活动奖品,活动奖品,活动奖品,活动奖品
-			p 活动奖品,活动奖品,活动奖品,活动奖品
-			p 活动奖品,活动奖品,活动奖品,活动奖品
+			.ty-carousel
+				.inner
+					.item
+						img(src="img/slide1.jpg")
+					.item
+						img(src="img/slide2.jpg")
+					.item
+						img(src="img/slide3.jpg")
+				.controller
+					a(data-target=1, href="#")
+					a(data-target=2, href="#")
+					a(data-target=3, href="#")
+
 		h3 领奖指南
 		.content
 			p 这儿是领奖指南。这儿是领奖指南。这儿是领奖指南。这儿是领奖指南。

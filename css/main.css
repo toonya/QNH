@@ -825,6 +825,49 @@ ul {
     width: 100%;
   }
 }
+.ty-carousel {
+  padding-top: 66.7%;
+  position: relative;
+  overflow: hidden;
+}
+.ty-carousel .inner {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.ty-carousel .inner .item {
+  position: absolute;
+  width: 100%;
+}
+.ty-carousel .inner .item.active {
+  display: block;
+}
+.ty-carousel .inner .item img {
+  max-width: 100%;
+}
+.ty-carousel .inner .item:nth-child(2) {
+  left: 100%;
+}
+.ty-carousel .inner .item:nth-child(3) {
+  left: 200%;
+}
+.ty-carousel .controller {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+}
+.ty-carousel .controller a {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background: #aaa;
+}
+.ty-carousel .controller a.active {
+  background: #fff;
+}
 .page {
   background: #d40a24 url(../img/bg-item.jpg) repeat;
   color: #fff;
