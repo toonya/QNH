@@ -308,4 +308,12 @@ Zepto(function($){
 	}
 
 	new carousel();
+
+	// ----------------------------------------
+	// ! scroll
+	// ----------------------------------------
+	$('body.static').on('touchmove', function (event) {
+	    event.preventDefault();
+	});
+
 })
